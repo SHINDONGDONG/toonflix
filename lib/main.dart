@@ -70,7 +70,7 @@ class MyApp extends StatelessWidget {
                 children: const [
                   ButtonWidget(
                     color: Color(0xFFF2B33A),
-                    text: 'Transfer',
+                    text: 'Transferㅁ',
                     textStyle: TextStyle(
                         fontWeight: FontWeight.w600, color: Colors.black),
                   ),
