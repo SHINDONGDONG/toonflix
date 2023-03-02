@@ -82,6 +82,12 @@ class MyApp extends StatelessWidget {
                   ),
                 ],
               ),
+              ButtonWidget(
+                color: Color(0xFF1F2123),
+                text: 'Request',
+                textStyle: TextStyle(
+                    fontWeight: FontWeight.w600, color: Colors.white),
+              ),
             ],
           ),
         ),
