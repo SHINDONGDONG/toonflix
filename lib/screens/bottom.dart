@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:toonflix/screens/home.dart';
+import 'package:toonflix/screens/pomodoro_screen.dart';
 import 'package:toonflix/screens/stateful_screen.dart';
 
 class BottomScreen extends StatefulWidget {
@@ -14,7 +15,7 @@ class _BottomScreenState extends State<BottomScreen> {
 
   static final List<Widget>_widgetOption=<Widget>[
     const Home(),
-    const StatefulScreen(),
+    const PomodoroScreen(),
   ];
 
   int _currentIndex = 0;
@@ -37,9 +38,9 @@ class _BottomScreenState extends State<BottomScreen> {
         backgroundColor: Color(0xFF181818),
         showUnselectedLabels: false,
         showSelectedLabels: false,
-        items: [
+        items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home_outlined), label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.add_a_photo_outlined), label: ""),
+          BottomNavigationBarItem(icon: Icon(Icons.timer_sharp), label: ""),
         ],
 
       )
