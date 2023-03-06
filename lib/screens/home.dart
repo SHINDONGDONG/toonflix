@@ -1,21 +1,19 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import 'package:toonflix/widgets/button_widget.dart';
+import 'package:toonflix/widgets/currency_card.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+class Home extends StatelessWidget {
+  const Home({Key? key}) : super(key: key);
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        //백그라운드 컬러
-        backgroundColor: const Color(0xFF181818),
-        body: Padding(
+    return Scaffold(
+      //백그라운드 컬러
+      backgroundColor: const Color(0xFF181818),
+      body: SingleChildScrollView(
+        child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 40),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,7 +38,7 @@ class MyApp extends StatelessWidget {
                       Text(
                         'Welcome back',
                         style: TextStyle(
-                            //투명옵션
+                          //투명옵션
                             color: Colors.white.withOpacity(0.8),
                             fontSize: 18),
                       ),
@@ -48,7 +46,7 @@ class MyApp extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 120),
+              const SizedBox(height: 70),
               Text(
                 "Total Balance",
                 style: TextStyle(
@@ -81,6 +79,53 @@ class MyApp extends StatelessWidget {
                         fontWeight: FontWeight.w600, color: Colors.white),
                   ),
                 ],
+              ),
+              const SizedBox(
+                height: 70,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Text(
+                    "Wallets",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 36,
+                    ),
+                  ),
+                  Text("View All",
+                    style: TextStyle(
+                      color: Colors.white.withOpacity(0.8),
+                      fontSize: 18,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 20,),
+              const CurrencyCard(
+                order: 0,
+                name: 'Euro',
+                code: 'EUR',
+                amount: '6 642',
+                icon: Icons.euro_rounded,
+                isInverted: false,
+              ),
+              const CurrencyCard(
+                order: 3,
+                name: 'Bitcoin',
+                code: 'BTC',
+                amount: '9 223',
+                icon: Icons.currency_bitcoin,
+                isInverted: true,
+              ),
+              const CurrencyCard(
+                order: 6,
+                name: 'Dollar',
+                code: 'US',
+                amount: '6 642',
+                icon: Icons.attach_money_outlined,
+                isInverted: false,
               ),
             ],
           ),
