@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:toonflix/screens/home.dart';
 import 'package:toonflix/screens/pomodoro_screen.dart';
 import 'package:toonflix/screens/stateful_screen.dart';
+import 'package:toonflix/screens/webtoon_screen.dart';
 
 class BottomScreen extends StatefulWidget {
   const BottomScreen({Key? key}) : super(key: key);
@@ -16,6 +17,7 @@ class _BottomScreenState extends State<BottomScreen> {
   static final List<Widget>_widgetOption=<Widget>[
     const Home(),
     const PomodoroScreen(),
+    const WebToonScreen(),
   ];
 
   int _currentIndex = 0;
@@ -41,6 +43,7 @@ class _BottomScreenState extends State<BottomScreen> {
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home_outlined), label: ""),
           BottomNavigationBarItem(icon: Icon(Icons.timer_sharp), label: ""),
+          BottomNavigationBarItem(icon: Icon(Icons.menu_book_outlined), label: ""),
         ],
 
       )
