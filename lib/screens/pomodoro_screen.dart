@@ -62,6 +62,15 @@ class _PomodoroScreenState extends State<PomodoroScreen> {
     });
   }
 
+  void onResetPressed(){
+    setState(() {
+    timer.cancel();
+    totalSeconds=twentyFiveMinutes;
+    isRunning = !isRunning;
+
+    });
+  }
+
   String format(int seconds){
     //duration을 담아주면 시간:분:초 로 나온다.
     var duration = Duration(seconds: seconds);
@@ -97,21 +106,40 @@ class _PomodoroScreenState extends State<PomodoroScreen> {
           //34줄 두번째 플렉시블
           Flexible(
             flex: 3,
-            child: Center(
-              child: IconButton(
-                onPressed: isRunning ? onPausePressed : onStartPressed,
-                icon: Transform.scale(
-                  scale: 7,
-                  child: Icon(
-                    isRunning
-                        ? Icons.pause_circle_outline
-                        : Icons.play_circle_outline,
-                    size: 20,
-                    color: Theme.of(context).cardColor,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Center(
+                  child: IconButton(
+                    onPressed: isRunning ? onPausePressed : onStartPressed,
+                    icon: Transform.scale(
+                      scale: 7,
+                      child: Icon(
+                        isRunning
+                            ? Icons.pause_circle_outline
+                            : Icons.play_circle_outline,
+                        size: 20,
+                        color: Theme.of(context).cardColor,
+                      ),
+                    ),
+
                   ),
                 ),
-
-              ),
+                SizedBox(height: 70,),
+                Center(
+                  child: IconButton(
+                    onPressed: onResetPressed,
+                    icon: Transform.scale(
+                      scale: 3,
+                      child: Icon(
+                        Icons.loop_outlined,
+                        color: Colors.white,
+                        size: 20,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
 
