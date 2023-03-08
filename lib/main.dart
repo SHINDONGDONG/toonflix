@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:toonflix/screens/bottom.dart';
-import 'package:toonflix/screens/webtoon_screen.dart';
-import 'package:toonflix/services/api_service.dart';
-import 'package:toonflix/widgets/button_widget.dart';
-import 'package:toonflix/widgets/currency_card.dart';
 
 void main() {
   runApp(const MyApp());
