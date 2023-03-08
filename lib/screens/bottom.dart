@@ -17,7 +17,7 @@ class _BottomScreenState extends State<BottomScreen> {
   static final List<Widget>_widgetOption=<Widget>[
     const Home(),
     const PomodoroScreen(),
-    const WebToonScreen(),
+    WebToonScreen(),
   ];
 
   int _currentIndex = 0;
