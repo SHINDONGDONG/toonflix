@@ -15,9 +15,9 @@ class BottomScreen extends StatefulWidget {
 class _BottomScreenState extends State<BottomScreen> {
 
   static final List<Widget>_widgetOption=<Widget>[
+    WebToonScreen(),
     const Home(),
     const PomodoroScreen(),
-    WebToonScreen(),
   ];
 
   int _currentIndex = 0;
@@ -41,9 +41,9 @@ class _BottomScreenState extends State<BottomScreen> {
         showUnselectedLabels: false,
         showSelectedLabels: false,
         items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.menu_book_outlined), label: ""),
           BottomNavigationBarItem(icon: Icon(Icons.home_outlined), label: ""),
           BottomNavigationBarItem(icon: Icon(Icons.timer_sharp), label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.menu_book_outlined), label: ""),
         ],
 
       )
