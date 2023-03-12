@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:toonflix/services/api_service.dart';
+import 'package:toonflix/widgets/webtoon_widget.dart';
 import '../models/webtoon_model.dart';
 
 class WebToonScreen extends StatelessWidget {
@@ -31,18 +32,16 @@ class WebToonScreen extends StatelessWidget {
           if(snapshot.hasData){
             //ListView.separated는 리스트사이에
             //widget을 낑겨서 넣을 수 있는 리스트이다.
-            return ListView.separated(
-                  itemBuilder: (context, index){
-                    var webtoon = snapshot.data![index];
-                    return Text(webtoon.title);
-                  },
-                  scrollDirection: Axis.horizontal,
-                  itemCount: snapshot.data!.length,
-              //여기서 SizedBox를 위젯으로 넣어서 데이터들 사이에 띄워짐이 보인다.
-                  separatorBuilder: (BuildContext context, int index) {
-                    print(index);
-                    return SizedBox(width: 10);
-                  },);
+            return Column(
+              children: [
+                const SizedBox(
+                  height: 50,
+                ),
+                Expanded(
+                    child: makeList(snapshot),
+                  ),
+                ],
+            );
               //ListView.builder를 사용하면 메모리를 잘 활용할 수 있다.
             // return ListView.builder(
             //   //require 세 개 항목
@@ -58,12 +57,33 @@ class WebToonScreen extends StatelessWidget {
             //
             // );
           }
-          return Center(
+          return const Center(
               child: RefreshProgressIndicator(),
             );
           }
 
       ),
+    );
+  }
+
+  //웹툰 리스트
+  ListView makeList(AsyncSnapshot<List<WebtoonModel>> snapshot) {
+    return ListView.separated(
+      padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 20),
+      itemBuilder: (context, index) {
+        var webtoon = snapshot.data![index];
+        return Webtoon(
+            title: webtoon.title,
+            thumb: 'https://picsum.photos/200/300',
+            id: webtoon.id);
+      },
+      scrollDirection: Axis.horizontal,
+      itemCount: snapshot.data!.length,
+      //여기서 SizedBox를 위젯으로 넣어서 데이터들 사이에 띄워짐이 보인다.
+      separatorBuilder: (BuildContext context, int index) {
+        print(index);
+        return SizedBox(width: 40);
+      },
     );
   }
 }
